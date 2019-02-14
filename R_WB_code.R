@@ -306,10 +306,10 @@ lm(mass ~ pop * svl-1 - svl)
 
 
 
-### 7.1. T-test with equal variances
+#### 7.1. T-test with equal variances ####
 
 
-### 7.1.2. Data generation
+#### 7.1.2. Data generation ####
 n1 <- 60				# Number of females
 n2 <- 40				# Number of males
 mu1 <- 105				# Population mean of females
@@ -331,7 +331,7 @@ y.obs <- rnorm(n = n, mean = E.y, sd = sigma)	# Add random variation
 boxplot(y.obs ~ x, col = "grey", xlab = "Male", ylab = "Wingspan (cm)", las = 1)
 
 
-### 7.1.3. Analysis using R
+#### 7.1.3. Analysis using R ####
 fit1 <- lm(y ~ x)			# Analysis of first data set
 fit2 <- lm(y.obs ~ x)			# Analysis of second data set
 summary(fit1)
