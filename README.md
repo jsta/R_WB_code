@@ -7,6 +7,8 @@
 
 > Mirrored from: https://www.mbr-pwrc.usgs.gov/pubanalysis/kerybook/R_WB_code.txt
 
+## Dependencies
+
 ```r
 install.packages(c("pscl", "R2WinBUGS", "lme4"))
 ```
