@@ -604,16 +604,13 @@ abline(v = 0, col = "black", lwd = 2)
 
 
 
-###############################################################
-#            Chapter 9: Normal one-way ANOVA                  #
-###############################################################
+
+#            Chapter 9: Normal one-way ANOVA                  ####
+
+### 9.2. Fixed-effects ANOVA ####
 
 
-
-### 9.2. Fixed-effects ANOVA
-
-
-### 9.2.1. Data generation
+### 9.2.1. Data generation ####
 ngroups <- 5				# Number of populations
 nsample <- 10				# Number of snakes in each
 pop.means <- c(50, 40, 45, 55, 60) 	# Population mean SVL
@@ -630,14 +627,14 @@ y <- as.numeric(X %*% as.matrix(pop.means) + eps) # assemble -- NOTE: as.numeric
 boxplot(y~x, col="grey", xlab="Population", ylab="SVL", main="", las = 1)
 
 
-### 9.2.2. Maximum likelihood analysis using R
+### 9.2.2. Maximum likelihood analysis using R ####
 print(anova(lm(y~as.factor(x))))
 cat("\n")
 print(summary(lm(y~as.factor(x)))$coeff, dig = 3)
 cat("Sigma:         ", summary(lm(y~as.factor(x)))$sigma, "\n")
 
 
-### 9.2.3. Bayesian analysis using WinBUGS
+### 9.2.3. Bayesian analysis using WinBUGS ####
 # Write model
 sink("anova.txt")
 cat("
@@ -692,10 +689,10 @@ print(out, dig = 3)
 
 
 
-### 9.3. Random-effects ANOVA
+### 9.3. Random-effects ANOVA ####
 
 
-### 9.3.1. Data generation
+### 9.3.1. Data generation ####
 npop <- 10				# Number of populations: now choose 10 rather than 5
 nsample <- 12				# Number of snakes in each
 n <- npop * nsample			# Total number of data points
@@ -713,7 +710,7 @@ boxplot(y ~ x, col = "grey", xlab = "Population", ylab = "SVL", main = "", las =
 abline(h = pop.grand.mean)
 
 
-### 9.3.2. Restricted maximum likelihood (REML) analysis using R
+### 9.3.2. Restricted maximum likelihood (REML) analysis using R ####
 library('lme4')				# Load lme4
 
 pop <- as.factor(x)			# Define x as a factor and call it pop
@@ -772,16 +769,7 @@ out <- bugs(win.data, inits, parameters, "re.anova.txt", n.thin=nt,
 # Inspect estimates
 print(out, dig = 3)
 
-
-
-
-
-
-###############################################################
-#            Chapter 10: Normal two-way ANOVA                 #
-###############################################################
-
-
+#            Chapter 10: Normal two-way ANOVA                 ####
 
 ### 10.2. Data generation
 # Choose sample size
